@@ -16,5 +16,9 @@ stages:
       registry: harbor.youjiqing.club
     env:
       PLUGIN_INSECURE: "true"
+- name: Build
+  steps:
+  - applyYamlConfig:
+      path: ./deployment.yaml
 timeout: 60
 notification: {}
