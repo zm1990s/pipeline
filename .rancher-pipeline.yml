@@ -16,9 +16,22 @@ stages:
       registry: harbor.youjiqing.club
     env:
       PLUGIN_INSECURE: "true"
-- name: Deploy
+- name: Catalog
   steps:
-  - applyYamlConfig:
-      path: ./deployment.yaml
+  - publishCatalogConfig:
+      path: ./pipeline/pipeline-demo/
+      catalogTemplate: pipeline-demo
+      version: 1.0.${CICD_EXECUTION_SEQUENCE}
+      gitUrl: https://github.com/JackieYou/demo-charts
+      gitBranch: master
+      gitAuthor: JackieYou
+      gitEmail: jiqing@rancher.com
+    envFrom:
+    - sourceName: github
+      sourceKey: USERNAME
+      targetKey: USERNAME
+    - sourceName: github
+      sourceKey: PASSWORD
+      targetKey: PASSWORD
 timeout: 60
 notification: {}
