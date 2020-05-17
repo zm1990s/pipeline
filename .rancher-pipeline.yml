@@ -1,0 +1,18 @@
+stages:
+- name: Build
+  steps:
+  - runScriptConfig:
+      image: harbor.youjiqing.club/rancher/busybox:latest
+      shellScript: |-
+        pwd
+        ls -al
+- name: Publish
+  steps:
+  - publishImageConfig:
+      dockerfilePath: ./Dockerfile
+      buildContext: .
+      tag: harbor.youjiqing.club/rancher/nginx:${CICD_EXECUTION_SEQUENCE}
+      pushRemote: true
+      registry: harbor.youjiqing.club
+timeout: 60
+notification: {}
