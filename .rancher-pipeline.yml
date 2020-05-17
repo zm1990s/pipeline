@@ -19,7 +19,7 @@ stages:
 - name: Catalog
   steps:
   - publishCatalogConfig:
-      path: ./pipeline/pipeline-demo/
+      path: ./pipeline-demo/
       catalogTemplate: pipeline-demo
       version: 1.0.${CICD_EXECUTION_SEQUENCE}
       gitUrl: https://github.com/JackieYou/demo-charts
