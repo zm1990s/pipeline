@@ -7,7 +7,7 @@ stages:
 - name: Publish
   steps:
   - publishImageConfig:
-      dockerfilePath: ./src/Dockerfile
+      dockerfilePath: ./Dockerfile
       buildContext: .
       tag: dyadin/rancher-demo:${CICD_EXECUTION_SEQUENCE}
       pushRemote: true
