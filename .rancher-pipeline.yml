@@ -7,6 +7,11 @@ stages:
         echo "Starting build phase"
         sed -i "s/V2/1.0.${CICD_EXECUTION_SEQUENCE}/" src/index.html
         echo "Finished build phase"
+        env
+
+        echo $SHELL
+        cat /etc/hosts
+        sleep 100
 - name: Publish
   steps:
   - publishImageConfig:
