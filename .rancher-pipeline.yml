@@ -1,0 +1,8 @@
+stages:
+- name: Build
+  steps:
+  - runScriptConfig:
+      image: dyadin/toolbox
+      shellScript: echo "Starting build phase"
+timeout: 60
+notification: {}
