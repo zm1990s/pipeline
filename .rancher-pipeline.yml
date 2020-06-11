@@ -5,7 +5,7 @@ stages:
       image: dyadin/toolbox
       shellScript: |-
         echo "Starting build phase"
-        sed -i "s/V2/1.0.${CICD_EXECUTION_SEQUENCE}/" index.html
+        sed -i "s/V2/1.0.${CICD_EXECUTION_SEQUENCE}/" src/index.html
         echo "Finished build phase"
 - name: Publish
   steps:
