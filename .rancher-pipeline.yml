@@ -4,5 +4,17 @@ stages:
   - runScriptConfig:
       image: dyadin/toolbox
       shellScript: echo "Starting build phase"
+- name: Publish
+  steps:
+  - publishImageConfig:
+      dockerfilePath: ./Dockerfile
+      buildContext: .
+      tag: dyadin/rancher-demo:${CICD_EXECUTION_SEQUENCE}
+      pushRemote: true
+      registry: index.docker.io
+- name: Deploy
+  steps:
+  - applyYamlConfig:
+      path: ./deployment.yaml
 timeout: 60
 notification: {}
