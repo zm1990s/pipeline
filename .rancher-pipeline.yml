@@ -12,9 +12,22 @@ stages:
       tag: dyadin/rancher-demo:${CICD_EXECUTION_SEQUENCE}
       pushRemote: true
       registry: index.docker.io
-- name: Deploy
+- name: Catalog
   steps:
-  - applyYamlConfig:
-      path: ./deployment.yaml
+  - publishCatalogConfig:
+      path: ./charts-src
+      catalogTemplate: Rancher-Demo
+      version: ${CICD_EXECUTION_SEQUENCE}
+      gitUrl: https://github.com/zm1990s/kubernetes-charts.git
+      gitBranch: master
+      gitAuthor: dyadin
+      gitEmail: zm1990s@gmail.com
+    envFrom:
+    - sourceName: github-secret
+      sourceKey: USERNAME
+      targetKey: USERNAME
+    - sourceName: github-secret
+      sourceKey: PASSWORD
+      targetKey: PASSWORD
 timeout: 60
 notification: {}
