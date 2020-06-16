@@ -11,7 +11,7 @@ stages:
 
         echo $SHELL
         cat /etc/hosts
-        sleep 10
+        sleep 1
 - name: Publish
   steps:
   - publishImageConfig:
