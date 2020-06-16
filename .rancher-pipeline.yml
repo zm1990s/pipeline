@@ -2,7 +2,7 @@ stages:
 - name: Build
   steps:
   - runScriptConfig:
-      image: dyadin/toolbox
+      image: dyadin/git-client
       shellScript: |-
         echo "Starting build phase"
         sed -i "s/V2/1.0.${CICD_EXECUTION_SEQUENCE}/" src/index.html
