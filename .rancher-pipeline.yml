@@ -38,4 +38,10 @@ stages:
       sourceKey: PASSWORD
       targetKey: PASSWORD
 timeout: 60
-notification: {}
+branch: {}
+notification:
+  recipients:
+  - recipient: "2"
+    notifier: local:n-gx6xr
+  condition:
+  - Changed
