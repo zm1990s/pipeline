@@ -33,17 +33,12 @@ stages:
       gitAuthor: dyadin
       gitEmail: zm1990s@gmail.com
     envFrom:
-    - sourceName: github-secret
+    - sourceName: github-zhangmin
       sourceKey: USERNAME
       targetKey: USERNAME
-    - sourceName: github-secret
+    - sourceName: github-zhangmin
       sourceKey: PASSWORD
       targetKey: PASSWORD
 timeout: 60
 branch: {}
-notification:
-  recipients:
-  - recipient: "2"
-    notifier: local:n-gx6xr
-  condition:
-  - Changed
+notification: {}
