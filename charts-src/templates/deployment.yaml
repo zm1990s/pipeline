@@ -17,12 +17,7 @@ spec:
     spec:
       containers:
       - name: {{ .Values.app.name }}
-{{- if eq .Values.region "local" }}
         image: dyadin/rancher-demo:${CICD_EXECUTION_SEQUENCE}
-{{- end }}
-{{- if eq .Values.region "public-AKS" }}
-        image: nginx:1.18.0-alpine
-{{- end }}
         imagePullPolicy: {{ .Values.deployment.pullpolicy }}
         ports:
         - containerPort: 80
