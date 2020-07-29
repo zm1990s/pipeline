@@ -12,8 +12,8 @@ stages:
         echo "current dir is $PWD"
         echo "---------"
 
-        git pull ${CICD_GIT_URL} ${CICD_GIT_BRANCH}
-        sleep 10
+        #git pull ${CICD_GIT_URL} ${CICD_GIT_BRANCH}
+        #sleep 10
 - name: Publish
   steps:
   - publishImageConfig:
